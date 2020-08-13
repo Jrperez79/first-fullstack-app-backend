@@ -20,31 +20,31 @@ describe('app routes', () => {
     return client.end(done);
   });
 
-  test('returns animals', async() => {
+  test('returns mls', async() => {
 
     const expectation = [
       {
-        'id': 1,
-        'name': 'bessie',
-        'coolfactor': 3,
-        'owner_id': 1
+        name: 'Portland Timbers',
+        league_standing: 1,
+        ever_won_a_championship: true,
+        conference: 'Western'
       },
       {
-        'id': 2,
-        'name': 'jumpy',
-        'coolfactor': 4,
-        'owner_id': 1
+        name: 'Orlando City',
+        league_standing: 2,
+        ever_won_a_championship: false,
+        conference: 'Eastern'
       },
       {
-        'id': 3,
-        'name': 'spot',
-        'coolfactor': 10,
-        'owner_id': 1
+        name: 'Philadelphia Union',
+        league_standing: 3,
+        ever_won_a_championship: false,
+        conference: 'Eastern'
       }
     ];
 
     const data = await fakeRequest(app)
-      .get('/animals')
+      .get('/mls')
       .expect('Content-Type', /json/)
       .expect(200);
 
