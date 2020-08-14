@@ -27,10 +27,10 @@ async function run() {
     await Promise.all(
       mls.map(teams => {
         return client.query(`
-                    INSERT INTO mls (name, league_standing, ever_won_a_championship, conference, owner_id)
+                    INSERT INTO mls (name, conference, league_standing, ever_won_a_championship, owner_id)
                     VALUES ($1, $2, $3, $4, $5);
                 `,
-        [teams.name, teams.league_standing, teams.ever_won_a_championship, teams.conference, user.id]);
+        [teams.name, teams.conference, teams.league_standing, teams.ever_won_a_championship, user.id]);
       })
     );
     
