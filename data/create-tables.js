@@ -24,9 +24,9 @@ async function run() {
                 CREATE TABLE mls (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
+                    conferences_id INTEGER NOT NULL REFERENCES conferences(id),
                     league_standing INTEGER NOT NULL,
                     ever_won_a_championship BOOLEAN NOT NULL,
-                    conferences_id INTEGER NOT NULL REFERENCES conferences(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
