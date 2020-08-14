@@ -2,7 +2,7 @@ const client = require('../lib/client');
 // import our seed data:
 const mls = require('./mls.js');
 const usersData = require('./users.js');
-const conferencesData = require('./conferences.js');
+const conferences = require('./conferences.js');
 const { getEmoji } = require('../lib/emoji.js');
 
 run();
@@ -26,7 +26,7 @@ async function run() {
     const user = users[0].rows[0];
 
     await Promise.all(
-      conferencesData.map(conference => {
+      conferences.map(conference => {
         return client.query(`
                       INSERT INTO conferences (name)
                       VALUES ($1)
