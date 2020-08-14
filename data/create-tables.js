@@ -26,7 +26,7 @@ async function run() {
                     name VARCHAR(512) NOT NULL,
                     league_standing INTEGER NOT NULL,
                     ever_won_a_championship BOOLEAN NOT NULL,
-                    conference_id INTEGER NOT NULL REFERENCES conferences(id),
+                    conferences_id INTEGER NOT NULL REFERENCES conferences(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
