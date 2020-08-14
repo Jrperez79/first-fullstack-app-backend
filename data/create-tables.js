@@ -16,13 +16,17 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
-                );           
+                );
+                CREATE TABLE conferences (
+                  id SERIAL PRIMARY KEY,
+                  name VARCHAR(256) NOT NULL
+                );          
                 CREATE TABLE mls (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
                     league_standing INTEGER NOT NULL,
                     ever_won_a_championship BOOLEAN NOT NULL,
-                    conference VARCHAR(512) NOT NULL,
+                    conference_id INTEGER NOT NULL REFERENCES conferences(id),
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
